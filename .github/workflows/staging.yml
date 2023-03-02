@@ -27,8 +27,8 @@ jobs:
       - name: Test Project
         run: yarn test
 
-      - uses: mr-smithers-excellent/docker-build-push@v5
-        name: Build & push Docker image
+      - name: Build & push Docker image
+        uses: mr-smithers-excellent/docker-build-push@v5
         with:
           image: vietnguyen997/hub-aws-server
           tags: v1, latest
