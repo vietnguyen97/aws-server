@@ -33,6 +33,7 @@ jobs:
           image: vietnguyen997/hub-aws-server
           tags: v1, latest
           registry: docker.io
+          directory: api
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
