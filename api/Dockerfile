@@ -4,7 +4,7 @@ RUN apk add --no-cache libc6-compat
 
 WORKDIR /api
 
-COPY ./src ./src
+COPY src ./src
 COPY ./package.json ./package.json
 COPY ./tsconfig.json ./tsconfig.json
 COPY ./tsconfig.build.json ./tsconfig.build.json
