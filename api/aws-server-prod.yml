@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aws-server-deploy
+  labels:
+    name: aws-server-deploy
+    app: aws-server-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: aws-server-prod
+      app: aws-server-app
+  template:
+    metadata:
+      name: aws-server-prod
+      labels:
+        name: aws-server-prod
+        app: aws-server-app
+    spec:
+      containers:
+        - name: aws-server-container
+          image: 468537663012.dkr.ecr.ap-southeast-1.amazonaws.com/projectcicd:aws-images
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: CONTENT_TEST
+              value: 'EKS is Elastic Kubenetes Service'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aws-server-np-prod
+  labels:
+    name: aws-serve-deploy
+    app: aws-server-app
+spec:
+  type: NodePort
+  selector:
+    app: aws-server-app
+  ports:
+    - protocol: TCP
+      port: 8080
+      nodePort: 30072
