@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 // Create a service client module using ES6 syntax.
 import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
-import { ddbClient } from 'config';
+import { ddbClient } from 'src/config';
 
 const marshallOptions = {
   // Whether to automatically convert empty strings, blobs, and sets to `null`.
