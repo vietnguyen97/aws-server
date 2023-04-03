@@ -2,8 +2,8 @@ import { Injectable } from "@nestjs/common";
 import { CreateTableCommand } from "@aws-sdk/client-dynamodb";
 import { PutCommand } from "@aws-sdk/lib-dynamodb";
 import { ddbClient } from "../config";
-import { params } from "contants";
-import { ddbDocClient } from "config/write-dynamodb";
+import { params } from "../constants";
+import { ddbDocClient } from "../config/write-dynamodb";
 
 @Injectable()
 export class AppService {
